@@ -1,10 +1,9 @@
-// The following code 
+// The following below is a C++ Program about "Shipping Container" made by Christopher Wilson
 
 #include <iostream>
 #include <iomanip>
 using namespace std;
 
-// Function to calculate the rate based on weight
 double calculateRate(double weight) {
     if (weight <= 2) {
         return 1.10;
@@ -15,39 +14,32 @@ double calculateRate(double weight) {
     } else if (weight <= 20) {
         return 4.80;
     }
-    return 0.0;  // Should never reach here as weight is validated before this point
+    return 0.0; 
 }
 
 int main() {
     double weight, distance;
 
-    // Ask the user for the weight of the package
     cout << "Enter the weight of the package in kilograms (1-20 kg): ";
     cin >> weight;
 
-    // Validate the weight
     while (weight <= 0 || weight > 20) {
-        cout << "Invalid weight! Weight must be greater than 0 and no more than 20 kg. Please enter again: ";
+        cout << "Invalid weight detected. Weight must be greater than 0 and no more than 20 kg. Please enter again: ";
         cin >> weight;
     }
 
-    // Ask the user for the shipping distance
     cout << "Enter the shipping distance in miles (10-3000 miles): ";
     cin >> distance;
 
-    // Validate the distance
-    while (distance < 10 || distance > 3000) {
-        cout << "Invalid distance! Distance must be between 10 and 3000 miles. Please enter again: ";
+while (distance < 10 || distance > 3000) {
+        cout << "Invalid distance detected. Distance must be between 10 and 3000 miles. Please enter again: ";
         cin >> distance;
     }
 
-    // Calculate the rate for the given weight
-    double rate = calculateRate(weight);
-
-    // Calculate the total charge for the shipping
+    double rate = calculateRate(weight);    
+    
     double totalCharge = (distance / 500) * rate;
 
-    // Output the result, formatted to two decimal places
     cout << fixed << setprecision(2);
     cout << "The shipping charge for a " << weight << " kg package over " << distance 
          << " miles is: $" << totalCharge << endl;
